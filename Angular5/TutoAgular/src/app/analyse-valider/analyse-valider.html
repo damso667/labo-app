@@ -1,0 +1,33 @@
+<p>analyse-valider works!</p>
+<div class="container mt-4">
+  <h3 class="mb-3">Valider les Analyses</h3>
+
+  <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+
+  <table class="table table-hover" *ngIf="analyses.length > 0">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Patient</th>
+        <th>Type Examen</th>
+        <th>Résultats</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of analyses" class="fade-in-row">
+        <td>{{ a.id }}</td>
+        <td>{{ a.patientId }}</td>
+        <td>{{ a.typeExamenId }}</td>
+        <td>{{ a.resultats }}</td>
+        <td>
+          <button class="btn btn-sm btn-success" (click)="valider(a.id)">Valider</button>
+        </td>
+      </tr>
+    </tbody> 
+  </table>
+
+  <div *ngIf="analyses.length === 0" class="alert alert-warning">
+    Aucune analyse à valider.
+  </div>
+</div>

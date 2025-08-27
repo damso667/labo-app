@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" routerLink="/home"> 🏛 Home</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- MENU MEDECIN -->
+        <ng-container *ngIf="role === 'ROLE_MEDECIN'">
+          <li class="nav-item"><a class="nav-link" routerLink="/patients">👨‍👩‍👧‍👦Patients</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/mes-patients">👨‍👩‍👧‍👦Mes Patients</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/analyses-prescrire">💊 Prescrire</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/analyses-valider"> ✔ Valider</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/resultats"> 🧬 Résultats</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/type-examens"> 🧬 Type Examens</a></li>
+        </ng-container>
+
+        <!-- MENU TECHNICIEN -->
+        <ng-container *ngIf="role === 'ROLE_TECHNITIEN'">
+          <li class="nav-item"><a class="nav-link" routerLink="/analyses-a-faire">🧬Analyses à faire</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/prelevements">💉 Prélèvements</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/resultats">🧬Résultats</a></li>
+
+
+        </ng-container>
+
+        <ng-container *ngIf="role === 'ROLE_SECRETAIRE'">
+          <li class="nav-item"><a class="nav-link" routerLink="/reactifs">🧪 Reactifs</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/type-examens"> 🧬 Type Examens</a></li>
+        </ng-container>
+
+      </ul>
+
+      <div class="d-flex">
+        <button class="btn btn-outline-light btn-sm" (click)="logout()">Déconnexion</button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,4 @@
+h3 { animation: fadeIn .5s ease-in-out; }
+.fade-row { animation: fadeRow .35s ease-in-out; }
+@keyframes fadeIn { from {opacity:0; transform: translateY(-6px);} to {opacity:1; transform:none;} }
+@keyframes fadeRow { from {opacity:0; transform: translateX(-10px);} to {opacity:1; transform:none;} }

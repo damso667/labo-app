@@ -1,0 +1,17 @@
+h2 {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 16px;
+}
+
+.btn {
+  border-radius: 12px;
+}

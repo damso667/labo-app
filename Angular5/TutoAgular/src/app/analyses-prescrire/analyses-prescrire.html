@@ -1,0 +1,32 @@
+<p>analyses-prescrire works!</p>
+<div class="container mt-4">
+  <h3 class="mb-3">Prescrire une Analyse</h3>
+
+  <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+
+  <form >
+    <div class="mb-3">
+      <label>Patient</label>
+      <select class="form-select" [(ngModel)]="selectedPatient" name="patient" required>
+              <option [ngValue]="null" disabled>— Sélectionner un patient —</option>
+        <option *ngFor="let p of patients" [value]="p.id">{{ p.nom }} {{ p.prenom }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3" >
+      <label>Type d'examen</label>
+      <select class="form-select" [(ngModel)]="selectedExamen" name="examen" required>
+      <option [ngValue]="null" disabled>— Sélectionner un type examen —</option>
+
+        <option *ngFor="let t of examens" [value]="t.id">{{ t.nom }} </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Description</label>
+      <textarea class="form-control" [(ngModel)]="description" name="description" placeholder="donner un description"></textarea>
+    </div>
+
+    <button class="btn btn-primary" (click)="prescrire()">Prescrire</button>
+  </form>
+</div>

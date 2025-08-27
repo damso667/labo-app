@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2 class="mb-4">📋 Enregistrer un prélèvement</h2>
+
+  <!-- Liste des analyses du technicien -->
+  <div class="mb-3">
+<label for="analyse">Sélectionner une analyse</label>
+<select class="form-control" [(ngModel)]="selectedAnalyseId" name="analyse" required>
+  <option [ngValue]="null">-- Choisir une analyse --</option>
+  <option *ngFor="let analyse of analyses" [value]="analyse.id">
+    Analyse #{{ analyse.id }} - {{ analyse.description || 'Pas de description' }}
+    (Patient ID: {{ analyse.patientId }})
+  </option>
+</select>
+  </div>
+
+  <!-- Type de prélèvement -->
+  <div class="mb-3">
+    <label class="form-label">Type de prélèvement</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="ex: sang, urine..."
+      [(ngModel)]="typePrelevement"
+    />
+  </div>
+
+  <!-- Bouton enregistrer -->
+  <button class="btn btn-primary" (click)="enregistrer()">
+    💾 Enregistrer
+  </button>
+
+  <!-- Message -->
+  <div *ngIf="message" class="mt-3 alert alert-info">
+    {{ message }}
+  </div>
+</div>
+
+
+

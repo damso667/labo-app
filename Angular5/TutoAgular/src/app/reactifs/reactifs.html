@@ -1,0 +1,73 @@
+<div class="container mt-4">
+  <h2 class="mb-4">🧪 Gestion des Réactifs</h2>
+
+  <!-- Tableau des réactifs -->
+  <table class="table table-striped table-hover shadow-sm rounded">
+    <thead class="table-dark">
+      <tr>
+        <th>📌 ID</th>
+        <th>🔬 Nom</th>
+        <th>📖 Code</th>
+        <th>⚖️ Unité</th>
+        <th>📦 Stock</th>
+        <th>👤 Modifié par</th>
+        <th>⚡ Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of reactifs">
+        <td>{{ r.id }}</td>
+        <td>{{ r.nom }}</td>
+        <td>{{ r.code }}</td>
+        <td>{{ r.unite }}</td>
+        <td><span class="badge bg-info text-dark">{{ r.stock }}</span></td>
+        <td>{{ r.dernierModifieParId || '❌' }}</td>
+        <td>
+          <div class="input-group input-group-sm">
+            <input type="number" [(ngModel)]="quantiteAugmenter" class="form-control" placeholder="Quantité">
+            <button class="btn btn-success" (click)="augmenterStock(r.id)">➕</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Formulaire d'ajout -->
+  <div class="card shadow p-3 mt-4">
+    <h5 class="card-title">➕ Ajouter un Réactif</h5>
+    <form (ngSubmit)="addReactif()" class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Nom</label>
+        <input type="text" [(ngModel)]="newReactif.nom" name="nom" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Code</label>
+        <input type="text" [(ngModel)]="newReactif.code" name="code" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Unité</label>
+        <input type="text" [(ngModel)]="newReactif.unite" name="unite" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Stock initial</label>
+        <input type="number" [(ngModel)]="newReactif.stock" name="stock" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Type Examen (Nom)</label>
+        <input type="text" [(ngModel)]="newReactif.typeExamenNom" name="typeExamenNom" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Type Examen (Description)</label>
+        <input type="text" [(ngModel)]="newReactif.typeExamenDescription" name="typeExamenDescription" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Quantité par Analyse</label>
+        <input type="number" step="0.1" [(ngModel)]="newReactif.quantiteParAnalyse" name="quantiteParAnalyse" class="form-control">
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary">✅ Enregistrer</button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">♻️ Réinitialiser</button>
+      </div>
+    </form>
+  </div>
+</div>

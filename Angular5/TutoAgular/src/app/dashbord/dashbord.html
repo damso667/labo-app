@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <h2 class="mb-4 fw-bold text-center">Tableau de bord — {{ role }}</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4 col-lg-3" *ngFor="let action of actions">
+      <div class="card action-card shadow-sm border-0 h-100 text-center"
+           [ngClass]="'border-' + action.color"
+           (click)="goTo(action.route)">
+        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+          <i [class]="action.icon + ' text-' + action.color" style="font-size:2.5rem;"></i>
+          <h6 class="mt-3 fw-semibold">{{ action.title }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,35 @@
+.login-card { width: 380px; animation: fadeIn .6s ease-in-out; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
+
+/* Fond bulles fixe, indépendant */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* reste derrière tout */
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(34,197,94,0.08), transparent 60%),
+    radial-gradient(1000px 700px at 90% 110%, rgba(168,85,247,0.08), transparent 60%),
+    linear-gradient(160deg, #0b0f12, #141a1f);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Bulles animées (indépendantes aussi) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle 20vmax at 10% 70%, rgba(34,197,94,0.15), transparent 70%),
+    radial-gradient(circle 15vmax at 80% 20%, rgba(168,85,247,0.15), transparent 70%),
+    radial-gradient(circle 10vmax at 50% 80%, rgba(245,158,11,0.15), transparent 70%);
+  animation: moveBubbles 40s infinite alternate ease-in-out;
+}
+
+@keyframes moveBubbles {
+  from { transform: translateY(0px) scale(1); }
+  to   { transform: translateY(-40px) scale(1.05); }
+}

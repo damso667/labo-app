@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Patients disponibles</h3>
+
+  <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let p of patients">
+      <div class="card shadow-sm fade-in-row">
+        <img src="patient.png" class="card-img-top" style="max-width: 150px" alt="Patient photo">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.nom }} {{ p.prenom }}</h5>
+          <p class="card-text">
+            🥇 N° {{p.id}} <br>
+            📧 {{ p.email }} <br>
+            📱 {{ p.telephone }} <br>
+            🗓️ Né(e) le {{ p.dateNaissance }}<br>
+
+          </p>
+          <button class="btn btn-sm btn-success" (click)="recuperer(p.id)">Suivre</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

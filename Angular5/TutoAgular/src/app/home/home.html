@@ -1,0 +1,104 @@
+<!-- Section HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <h1 class="display-5 fw-bold mb-2 gradient-text">Laboratoire • Excellence & Fiabilité</h1>
+    <p class="lead text-muted mb-4">
+      Documentation officielle, normes qualité, traçabilité et process — votre référentiel de confiance.
+    </p>
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary btn-lg px-4" (click)="agir()">
+        {{ role ? 'Entrer dans mon espace' : 'Se connecter pour agir' }}
+      </button>
+      <a class="btn btn-outline-secondary btn-lg px-4" href="#sections">Découvrir</a>
+    </div>
+  </div>
+  <!-- bulles décoratives -->
+  <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
+</section>
+
+<!-- Sections DOCUMENTATION -->
+<section id="sections" class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="card shadow-sm card-reveal h-100">
+        <div class="card-body">
+          <h5 class="fw-semibold mb-2">Notre Mission</h5>
+          <p class="text-muted mb-0">
+            Offrir des analyses rapides et fiables, avec un haut niveau d’automatisation et de contrôle qualité.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card shadow-sm card-reveal h-100">
+        <div class="card-body">
+          <h5 class="fw-semibold mb-2">Qualité & Accréditations</h5>
+          <p class="text-muted mb-0">
+            Conformité ISO 15189, traçabilité des réactifs, validation multi-niveaux des résultats.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card shadow-sm card-reveal h-100">
+        <div class="card-body">
+          <h5 class="fw-semibold mb-2">Sécurité des données</h5>
+          <p class="text-muted mb-0">
+            Sessions sécurisées, journalisation, et séparation des rôles Médecin/Technicien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chiffres clés -->
+  <div class="row g-4 mt-1">
+    <div class="col-md-3">
+      <div class="kpi">
+        <div class="kpi-value">24/7</div>
+        <div class="kpi-label">Disponibilité</div>
+      </div>
+    </div>
+    <div class="col-md-3"><div class="kpi"><div class="kpi-value">+150</div><div class="kpi-label">Types d’examens</div></div></div>
+    <div class="col-md-3"><div class="kpi"><div class="kpi-value">&lt;4h</div><div class="kpi-label">Délai moyen</div></div></div>
+    <div class="col-md-3"><div class="kpi"><div class="kpi-value">99.9%</div><div class="kpi-label">Exactitude</div></div></div>
+  </div>
+</section>
+
+<!-- Section Process -->
+<section class="section-alt py-5">
+  <div class="container">
+    <h3 class="fw-bold mb-4">Process contrôlé de bout en bout</h3>
+    <div class="row g-4">
+      <div class="col-md-3"><div class="step"><div class="step-index">1</div><div class="step-title">Prescription</div><div class="step-desc">Création d’une analyse par le Médecin</div></div></div>
+      <div class="col-md-3"><div class="step"><div class="step-index">2</div><div class="step-title">Prélèvement</div><div class="step-desc">Enregistrement et acheminement</div></div></div>
+      <div class="col-md-3"><div class="step"><div class="step-index">3</div><div class="step-title">Analyse</div><div class="step-desc">Exécution & saisie des résultats</div></div></div>
+      <div class="col-md-3"><div class="step"><div class="step-index">4</div><div class="step-title">Validation</div><div class="step-desc">Validation médicale & diffusion</div></div></div>
+    </div>
+    <div class="text-center mt-4">
+      <button class="btn btn-dark btn-lg px-4" (click)="agir()">Agir maintenant</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="container py-5">
+  <h4 class="fw-bold mb-3">FAQ</h4>
+  <div class="accordion" id="faq">
+    <div class="accordion-item">
+      <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">Puis-je accéder sans connexion ?</button></h2>
+      <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+        <div class="accordion-body">La partie “documentation” est publique. L’espace d’action nécessite une session valide.</div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">Comment entrer dans mon espace ?</button></h2>
+      <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq">
+        <div class="accordion-body">Connectez-vous puis cliquez sur “Agir” pour accéder à vos fonctionnalités.</div>
+      </div>
+    </div>
+  </div>
+</section>

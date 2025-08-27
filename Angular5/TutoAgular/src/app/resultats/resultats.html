@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Résultats</h3>
+  <div *ngIf="message" class="alert alert-info py-2">{{ message }}</div>
+
+  <!-- TECHNICIEN : saisie -->
+  <ng-container *ngIf="role === 'ROLE_TECHNITIEN'">
+    <div class="card shadow-sm mb-3">
+      <div class="card-body">
+        <h6 class="mb-3">Saisir un résultat</h6>
+         <div class="row g-2 align-items-start">
+          <div class="col-md-4">
+            <select class="form-select" [(ngModel)]="selectedAnalyseId" name="analyse">
+              <option [ngValue]="null" disabled>— Sélectionner une analyse —</option>
+              <option *ngFor="let a of analyses" [ngValue]="a.id">
+                #{{a.id}} • Patient {{a.patientId}} • {{a.typeExamenNom || a.typeExamenId}}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <textarea class="form-control" rows="3" placeholder="Saisir les résultats"
+                      [(ngModel)]="resultatsTexte" name="resultats"></textarea>
+          </div>
+          <div class="col-md-2 d-grid">
+            <button class="btn btn-primary" (click)="soumettre()" [disabled]="!selectedAnalyseId || !resultatsTexte.trim()">Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h6 class="mb-2">Analyses en cours</h6>
+    <table class="table table-hover table-striped">
+      <thead class="table-dark">
+        <tr><th>ID</th><th>Patient</th><th>Type</th><th>État</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of analyses" class="fade-row">
+          <td>{{a.id}}</td>
+          <td>{{a.patientId}}</td>
+          <td>{{a.typeExamenNom || a.typeExamenId}}</td>
+          <td><span class="badge bg-warning">En cours</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- MEDECIN : consultation / validation -->
+  <ng-container *ngIf="role === 'ROLE_MEDECIN'">
+    <h6 class="mb-2">Résultats à valider</h6>
+    <table class="table table-hover table-striped">
+      <thead class="table-dark">
+        <tr><th>ID</th><th>Patient</th><th>Type</th><th>Résultats</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of analyses" class="fade-row">
+          <td>{{a.id}}</td>
+          <td>{{a.patientId}}</td>
+          <td>{{a.typeExamenNom || a.typeExamenId}}</td>
+          <td class="small">{{a.resultats || '—'}}</td>
+          <td><button class="btn btn-sm btn-success" (click)="valider(a.id)">Valider</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- fallback -->
+  <div *ngIf="!role" class="alert alert-warning">Veuillez vous connecter pour voir les résultats.</div>
+</div>
